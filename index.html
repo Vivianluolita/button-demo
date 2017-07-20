@@ -3,18 +3,43 @@
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/button-demo.css">
-    <script src="js/jquery-1.7.2.min.js"></script>
+    <!--<script src="js/jquery-1.7.2.min.js"></script>-->
+    <script src="js/jquery.js"></script>
+    <script src="js/SWcolor.js"></script>
+    <!--<script src="js/switch.js"></script>-->
+
     <title></title>
 </head>
-    <div class="switch">
-        <!--<div class="switchOn"></div>-->
+    <div id="switch-button" class="switch">
+        <div class="switchOn" id="switchOn"></div>
     </div>
     <script>
         $(document).ready(function(){
-            $('.switch').click(function(){
-                $(this).toggleClass("switchOn");
-            });
-        });
+          //此处定义颜色
+            $('#switchOn').color('red');
+            //回调
+                $(".switch").click(function(){
+                    var length=$(this).find(".switchOn").length;
+                    if(length>0){
+                        $(this).toggleClass(function (index, className) {
+                            if ($(this).hasClass('switchOn')) {
+                                $(this).removeClass('switchOn');
+                                alert("111");
+                                return ''
+                            }else{
+                                alert("222");
+                                return 'switchOn'
+                            }
+                        })
+                    }
+                })
+            })
+
+
+
+
+        //回调
+
     </script>
 </body>
 </html>
