@@ -5,8 +5,9 @@
     <link rel="stylesheet" type="text/css" href="css/button-demo.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="js/jquery.js"></script>
-    <script src="js/SWcolor.js"></script>
-
+    <!--<script src="js/SWcolor.js"></script>-->
+    <!--<script src="js/SwitchColor.js"></script>-->
+    <script src="js/Switch.js"></script>
     <title></title>
 </head>
     <div id="switch-button" class="switch">
@@ -14,30 +15,35 @@
     </div>
     <script>
         $(document).ready(function(){
-          //此处定义颜色
-            $('#switchOn').color('red');
+          //法一：
+            /*$('#switchOn').color('red');
             //回调
-                $(".switch").click(function(){
-                    var length=$(this).find(".switchOn").length;
-                    if(length>0){
-                        $(this).toggleClass(function (index, className) {
-                            if ($(this).hasClass('switchOn')) {
-                                $(this).removeClass('switchOn');
-                                alert("111");
-                                return ''
-                            }else{
-                                alert("222");
-                                return 'switchOn'
-                            }
-                        })
-                    }
-                })
+            $(".switch").click(function(){
+                var length=$(this).find(".switchOn").length;
+                if(length>0){
+                    $(this).toggleClass(function (index, className) {
+                        if ($(this).hasClass('switchOn')) {
+                            $(this).removeClass('switchOn');
+                            alert("111");
+                            return ''
+                        }else{
+                            alert("222");
+                            return 'switchOn'
+                        }
+                    })
+                }
+            })*/
+          //法二：
+            $("#switchOn").initColor({
+                "openColor":"red",
+                "closeColor":"blue",
+                "open":function(){
+                    console.log("opennnnnnn")
+                },
+                "close":function(){
+                    console.log("closeeeeeee")
+                }});
             })
-
-
-
-
-        //回调
 
     </script>
 </body>
